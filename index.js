@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-// require("./db");
+require("./db");
 const PORT = process.env.PORT || 8080;
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -23,12 +23,5 @@ app.use("/products", productRoutes);
 app.use("/users", userRoutes);
 
 app.listen(8080, async () => {
-  try {
-    await mongoose.connect(process.env.DBHOST);
-    console.log("Connect DB success");
-  } catch (error) {
-    console.log("Connect DB failed", error);
-  }
-
   console.log("Server is listenin on PORT :" + PORT);
 });
