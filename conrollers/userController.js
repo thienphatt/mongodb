@@ -52,11 +52,11 @@ const loginUser = async (req, res) => {
   }
 };
 
-const getUsers = async () => {
+const getUsers = async (req, res) => {
   try {
-    const results = await User.find({});
-    res.status(200).json({ message: "success", data: results });
-  } catch (err) {
+    const user = await User.find({});
+    res.status(200).json({ message: "success", data: user });
+  } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
 };
