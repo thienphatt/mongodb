@@ -5,6 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
+const pingRoutes = require("./routes/pingRoutes");
 const mongoose = require("mongoose");
 const User = require("./models/User");
 app.use(express.json());
@@ -13,10 +14,9 @@ app.get("/", (req, res) => {
   res.send("products api running new deploy");
 });
 
-app.get("/ping", async (req, res) => {
-  const check = await User.find({});
-  res.status(200).json({ message: "success", data: check });
-});
+// test
+app.use("/ping", pingRoutes);
+
 // /products
 app.use("/products", productRoutes);
 // /users
