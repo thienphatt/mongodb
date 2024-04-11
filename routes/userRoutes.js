@@ -10,5 +10,6 @@ const router = require("express").Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/", getUsers);
+// router.get('/', getProducts);
 
 module.exports = router;

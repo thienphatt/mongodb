@@ -56,7 +56,7 @@ const getUsers = async () => {
   try {
     const user = await User.find({});
 
-    return res.status(200).json({ message: "success", data: user });
+    res.status(200).json({ message: "success", data: user });
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
